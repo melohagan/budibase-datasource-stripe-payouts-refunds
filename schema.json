@@ -1,0 +1,147 @@
+{
+  "type": "datasource",
+  "metadata": {},
+  "schema": {
+    "docs": "https://stripe.com/docs/api/payouts/create?lang=node",
+    "friendlyName": "Stripe payouts + refunds",
+    "type": "API",
+    "description": "Manage Stripe payouts and refunds",
+    "datasource": {
+      "apiKey": {
+        "type": "password",
+        "required": true
+      }
+    },
+    "query": {
+      "create": {
+        "type": "fields",
+        "fields": {
+          "amount": {
+            "type": "number",
+            "required": false
+          },
+          "currency": {
+            "type": "string",
+            "required": false
+          },
+          "charge": {
+            "type": "string",
+            "required": false
+          },
+          "description": {
+            "type": "string",
+            "required": false
+          },
+          "metadata": {
+            "type": "object",
+            "required": false
+          },
+          "payment_intent": {
+            "type": "string",
+            "required": false
+          },
+          "reason": {
+            "type": "string",
+            "required": false
+          },
+          "refund_application_fee": {
+            "type": "string",
+            "required": false
+          },
+          "reverse_transfer": {
+            "type": "string",
+            "required": false
+          },
+          "statement_descriptor": {
+            "type": "string",
+            "required": false
+          }
+        }
+      },
+      "read": {
+        "type": "fields",
+        "fields": {
+          "id": {
+            "type": "string",
+            "required": true
+          },
+          "status": {
+            "type": "string",
+            "required": false
+          },
+          "destination": {
+            "type": "string",
+            "required": false
+          },
+          "charge": {
+            "type": "string",
+            "required": false
+          },
+          "payment_intent": {
+            "type": "string",
+            "required": false
+          },
+          "ending_before": {
+            "type": "string",
+            "required": false
+          },
+          "limit": {
+            "type": "number",
+            "required": false
+          },
+          "starting_after": {
+            "type": "string",
+            "required": false
+          }
+        }
+      },
+      "update": {
+        "type": "fields",
+        "fields": {
+          "id": {
+            "type": "string",
+            "required": true
+          },
+          "metadata": {
+            "type": "object",
+            "required": false
+          }
+        }
+      },
+      "cancel": {
+        "type": "fields",
+        "fields": {
+          "id": {
+            "type": "string",
+            "required": true
+          }
+        }
+      }
+    },
+    "extra": {
+      "type": {
+        "displayName": "Type",
+        "type": "list",
+        "required": false,
+        "data": {
+          "create": [
+            "Payouts",
+            "Refunds"
+          ],
+          "read": [
+            "Payouts",
+            "Refunds"
+          ],
+          "update": [
+            "Payouts",
+            "Refunds"
+          ],
+          "delete": [
+            "Payouts",
+            "Refunds"
+          ]
+        }
+      }
+    }
+  }
+}
